@@ -1,10 +1,5 @@
 import TaskItem from "./TaskItem";
-
-type Task = {
-    id: number;
-    text: string;
-    completed: boolean;
-};
+import type {Task} from "../entity/Task.ts";
 
 interface TaskListProps {
     tasks: Task[];
@@ -12,7 +7,17 @@ interface TaskListProps {
     onDelete: (id: number) => void;
 }
 
-function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
+/**
+ * Displays a list of tasks with options to toggle or delete each task.
+ *
+ * @param {Object} props - The properties object.
+ * @param {Array} props.tasks - An array of task objects to display.
+ * @param {Function} props.onToggle - A function to handle toggling task completion status.
+ * @param {Function} props.onDelete - A function to handle deleting a task.
+ *
+ * @return A list of task items or a message if no tasks are present.
+ */
+function TaskList({tasks, onToggle, onDelete}: TaskListProps) {
     if (tasks.length === 0) {
         return <p className="empty">No tasks yet 🎉</p>;
     }
@@ -26,6 +31,7 @@ function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
                     onToggle={onToggle}
                     onDelete={onDelete}
                 />
+
             ))}
         </ul>
     );

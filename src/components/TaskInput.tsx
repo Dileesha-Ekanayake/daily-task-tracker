@@ -4,6 +4,13 @@ interface TaskInputProps {
     onAdd: (text: string) => void;
 }
 
+/**
+ * A component for capturing user input to create and add a new task.
+ *
+ * @param {Object} props - Component properties.
+ * @param {Function} props.onAdd - Callback function to handle adding a new task. It receives the input text as an argument.
+ * @return The rendered input form for adding tasks.
+ */
 function TaskInput({ onAdd }: TaskInputProps) {
     const [text, setText] = useState<string>("");
 
